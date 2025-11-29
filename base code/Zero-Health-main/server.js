@@ -1146,12 +1146,12 @@ app.post('/api/reports/generate', verifyToken, async (req, res) => {
         
         console.log('Generating PDF with command:', command);
         
-        const { exec } = require('child_process');
-        exec(command, (error, stdout, stderr) => {
+        const { execFile } = require('child_process');
+        execFile (command, (error, stdout, stderr) => {
             // Clean up temp HTML file
             if (fs.existsSync(htmlFile)) {
                 fs.unlinkSync(htmlFile);
-            }
+             }
             
             if (error) {
                 console.error('PDF generation error:', error);

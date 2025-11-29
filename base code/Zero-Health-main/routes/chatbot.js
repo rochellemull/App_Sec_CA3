@@ -266,8 +266,8 @@ const authenticateUser = (req, res, next) => {
 
   try {
     // Deliberately weak: No algorithm verification, accepts any valid JWT structure
-    const decoded = jwt.decode(token); // Using decode instead of verify!
-    req.user = decoded;
+    const verify = jwt.verify(token, secret); // Using verify instead of verify!
+    req.user = verify;
     next();
   } catch (error) {
     return res.status(403).json({ error: 'Invalid token' });
