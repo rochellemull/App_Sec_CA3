@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b752f37d-bfe7-4f72-8055-1f82cf02e91d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/base code/Zero-Health-main/routes/chatbot.js" beforeDir="false" afterPath="$PROJECT_DIR$/base code/Zero-Health-main/routes/chatbot.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/base code/Zero-Health-main/server.js" beforeDir="false" afterPath="$PROJECT_DIR$/base code/Zero-Health-main/server.js" afterDir="false" />
-    </list>
+    <list default="true" id="b752f37d-bfe7-4f72-8055-1f82cf02e91d" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -73,7 +70,7 @@
       <workItem from="1764445301311" duration="42000" />
       <workItem from="1764445396601" duration="30000" />
       <workItem from="1764445541031" duration="266000" />
-      <workItem from="1764445833767" duration="2657000" />
+      <workItem from="1764445833767" duration="2934000" />
     </task>
     <servers />
   </component>
