@@ -114,7 +114,8 @@ const verifyToken = (req, res, next) => {
 
 // Add OPTIONS handlers for all API endpoints
 app.options('/api/*', (req, res) => {
-    res.header('Access-Control-Allow-Origin', req.headers.origin || '*');
+     // remove * to remove vulnerability as it will only accept header origin
+    res.header('Access-Control-Allow-Origin', req.headers.origin);
     res.header('Access-Control-Allow-Credentials', 'true');
     res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
     res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization, Accept, X-Requested-With, Origin, Cache-Control, X-File-Name');
@@ -1235,19 +1236,34 @@ app.use('/uploads', express.static(path.join(__dirname, 'uploads')));
 app.get('/api/files/:filename', verifyToken, async (req, res) => {
     try {
         const { filename } = req.params;
+        //removes special characters
+        let fileNoSlash =filename.replaceAll("/","");
+        let fileNopoints = fileNoSlash.replaceAll("<","");
+        let file = fileNopoints.replaceAll(">","");
         
-        // Directory traversal vulnerability - direct concatenation allows ../../../etc/passwd
-        const filePath = __dirname + '/uploads/' + filename;
-        
-        console.log('File download request:', filename);
-        console.log('Resolved path:', filePath);
-        
+        // array list for an allowlist
+        const allowlist = ["sample-blood-1.svg","sample-mri-1.svg","sample-xray-1.svg"];
+        //checks filesname is in array list
+        if (allowlist.includes(file) == true){
+            var filePath = __dirname+ '/uploads/';
+    
+            console.log('File download request:', file);
+            console.log('Resolved path:', filePath);
+            
         // Check if file exists
-        if (fs.existsSync(filePath)) {
-            res.download(filePath);
-        } else {
-            res.status(404).json({ error: 'File not found' });
+        var checkFile = fs.existsSync(filePath);
+            if (checkFile == true) {
+                res.download(filePath);
+            
+            }else {
+                res.status(404).json({ error: 'File not found' });
+            }
         }
+        else{
+            console.error('File download error:', error);
+            res.status(500).json({ error: 'Failed to download file' });
+        }
+    
     } catch (error) {
         console.error('File download error:', error);
         res.status(500).json({ error: 'Failed to download file' });
