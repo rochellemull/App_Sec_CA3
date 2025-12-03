@@ -9,10 +9,12 @@ const fs = require('fs');
 const path = require('path');
 const multer = require('multer');
 
+require('dotenv').config();
+
 const app = express();
 
-// JWT secret configuration
-const JWT_SECRET = 'zero-health-super-secret-key';
+// Hardcoded Secret - High Issue (Snyk)
+const JWT_SECRET = process.env.JWT_SECRET;
 
 // CORS configuration
 app.use(cors({
@@ -1648,25 +1650,30 @@ app.post('/api/auth/login-with-rate-limit', async (req, res) => {
 
 // ===== SYSTEM INFO ENDPOINT - Information Disclosure =====
 app.get('/api/info', (req, res) => {
-    // No authentication required - exposes system information
+    // This part of code is giving all the information about the application
+    const port = process.env.PORT || 5000
+    const config = {
+        email: process.env.ADMIN_EMAIL,
+        password: process.env.ADMIN_PASSWORD,
+    };
+    console.log(`Server running on port ${port}`);
+
     res.json({
-        application: 'Zero Health',
-        version: '2.1.3',
+        application: 'Zero Health', //application name
+        version: '2.1.3', //application version
         node_version: process.version,
         environment: process.env.NODE_ENV || 'development',
         platform: process.platform,
         uptime: process.uptime(),
         memory_usage: process.memoryUsage(),
-        database: {
+        database: {     //information about the database
             host: process.env.POSTGRES_HOST || 'db',
             port: process.env.POSTGRES_PORT || 5432,
             database: process.env.POSTGRES_DB || 'zero_health'
         },
-        jwt_secret: JWT_SECRET,  // Exposed secret!
-        admin_credentials: {
-            email: 'admin@test.com',
-            password: 'password123'
-        },
+        jwt_secret: process.env.JWT_SECRET,  // Exposed secret!
+        admin_credentials: config,
+        
         vulnerability_count: '∞',
         last_updated: '2024-12-15'
     });
