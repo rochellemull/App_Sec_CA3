@@ -1145,9 +1145,10 @@ app.post('/api/reports/generate', verifyToken, async (req, res) => {
         const command = `wkhtmltopdf --page-size ${format} --orientation ${orientation} --title "${patientName} Medical Report" --author "${patientName}" "${htmlFile}" "${pdfFile}"`;
         
         console.log('Generating PDF with command:', command);
-        
-        const { execFile } = require('child_process');
-        execFile (command, (error, stdout, stderr) => {
+
+        const commandArgs = command.split(' ');
+        execFile(commandArgs[0], commandArgs.slice(1), (error, stdout, stderr) => {
+
             // Clean up temp HTML file
             if (fs.existsSync(htmlFile)) {
                 fs.unlinkSync(htmlFile);
