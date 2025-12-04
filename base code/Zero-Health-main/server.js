@@ -1657,6 +1657,9 @@ app.get('/api/info', (req, res) => {
         email: process.env.ADMIN_EMAIL,
         password: process.env.ADMIN_PASSWORD,
     };
+    const key = {
+        key: process.env.JWT_SECRET,
+    }
     console.log(`Server running on port ${port}`);
 
     res.json({
@@ -1672,8 +1675,7 @@ app.get('/api/info', (req, res) => {
             port: process.env.POSTGRES_PORT || 5432,
             database: process.env.POSTGRES_DB || 'zero_health'
         },
-        jwt_secret: process.env.JWT_SECRET,  // Exposed secret!
-        admin_credentials: config,
+        
         
         vulnerability_count: '∞',
         last_updated: '2024-12-15'
