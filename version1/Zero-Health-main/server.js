@@ -1240,7 +1240,8 @@ app.get('/api/files/:filename', verifyToken, async (req, res) => {
     try {
         const { filename } = req.params;
         //removes special characters
-        let fileNoSlash =filename.replaceAll("/","");
+        var newFileName = filename.toString();
+        let fileNoSlash =newFileName.replaceAll("../","");
         let fileNopoints = fileNoSlash.replaceAll("<","");
         let file = fileNopoints.replaceAll(">","");
         
@@ -1248,15 +1249,16 @@ app.get('/api/files/:filename', verifyToken, async (req, res) => {
         const allowlist = ["sample-blood-1.svg","sample-mri-1.svg","sample-xray-1.svg"];
         //checks filesname is in array list
         if (allowlist.includes(file) == true){
-            var filePath = __dirname+ '/uploads/';
-    
+            var filePath = __dirname+ '/uploads/'+ file;
+          
             console.log('File download request:', file);
             console.log('Resolved path:', filePath);
             
         // Check if file exists
-        var checkFile = fs.existsSync(filePath);
+        var checkFile = fs.existsSync(newFilePath);
             if (checkFile == true) {
-                res.download(filePath);
+                filePath
+                res.download(newFilePath);
             
             }else {
                 res.status(404).json({ error: 'File not found' });
