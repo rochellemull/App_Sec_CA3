@@ -25,7 +25,8 @@ Fix 4: Use of Hardcoded Passwords (Habiba)
 In the api/info endpoint there was a hardcoded password detected by the Snyk scan, and according to (owasp.org,2025), it is increasing the possibility for attackers to guess the passwords, and if the attacker found it, then they would be able to gain access and use that for malicious activities.
 Fixing this issue is done by removing the password from server.js and putting it in a safe, isolated file, which in this case is the .env file.
 
-Fix 5: 
+Fix 5: Origin Validation Error
+In the server.js for the header origin was not set to be from local host only as there was an or *. This part was removed to ensure the validation vulnerability was removed.
 
-Fix 6: 
-
+Fix 6: Path traversal
+For this part of the file path for to download an image include input from user. To ensure only files had were used and input was sanitized an allow list was created and used to verify that the file gotten was an approved file. As well as this the input from user was santized by replace the characters \ <> with nothing to also ensure traversal cannot occur through filename.
