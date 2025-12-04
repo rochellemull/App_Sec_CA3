@@ -37,4 +37,4 @@ Fix 3 Validation Origin error
 Burp suite can be used to test this using the proxy to capture the request and then attempting to modify the origin header. When done an error will occur that this is wrong and not the allowed one
 
 Fix 4 Path traversal
-This can be checked in Burpe suite by intercepting the get request for patients test results and sending it to the repeater. Then you modify the file path in the repeater and can see it gives an error 
+This can be checked in Burpe suite by intercepting the get request for patients test results and sending it to the repeater. Then you modify the file path in the repeater and can see it gives an error if the file name is not one on the allow list
