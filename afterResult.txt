@@ -1,0 +1,269 @@
+
+Testing /home/b00151078/Desktop/App_Sec_CA3-1 ...
+
+Open Issues
+
+ ✗ [LOW] Improper Type Validation
+   Finding ID: fa868504-ba33-407a-9c8b-cdb94dead005
+   Path: base%20code/Zero-Health-main/routes/chatbot.js, line 399
+   Info: The type of this object, coming from body and the value of its replace property can be controlled by the user. An attacker may craft the properties of the object to crash the application or bypass its logic. Consider checking the type of the object.
+
+ ✗ [LOW] Improper Type Validation
+   Finding ID: 63e6b053-b8b1-420b-8817-c8af94e90924
+   Path: base%20code/Zero-Health-main/routes/chatbot.js, line 351
+   Info: The type of this object, coming from body and the value of its length property can be controlled by the user. An attacker may craft the properties of the object to crash the application or bypass its logic. Consider checking the type of the object.
+
+ ✗ [LOW] Improper Type Validation
+   Finding ID: 7de59dbf-264d-4d4a-a54c-a05ea010a125
+   Path: base%20code/Zero-Health-main/server.js, line 184
+   Info: The type of this object, coming from body and the value of its length property can be controlled by the user. An attacker may craft the properties of the object to crash the application or bypass its logic. Consider checking the type of the object.
+
+ ✗ [MEDIUM] JWT 'none' Algorithm Supported
+   Finding ID: 4a30f332-4191-489e-822b-19e362a6812a
+   Path: base%20code/Zero-Health-main/server.js, line 98
+   Info: JWT signing or verification uses the 'none' algorithm. This allows an attacker to forge unencrypted JWT tokens that may be accepted by the application. Always specify which algorithms should be accepted to avoid unintended behaviour.
+
+ ✗ [MEDIUM] Allocation of Resources Without Limits or Throttling
+   Finding ID: 282d0aef-6d86-4b49-9519-97070818e520
+   Path: base%20code/Zero-Health-main/server.js, line 1333
+   Info: Expensive operation (a file system operation) is performed by an endpoint handler which does not use a rate-limiting mechanism. It may enable the attackers to perform Denial-of-service attacks. Consider using a rate-limiting middleware such as express-limit.
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: fb92c205-02cf-460e-ac4d-27d256830017
+   Path: base%20code/Zero-Health-main/client/src/components/PatientPortal.jsx, line 539
+   Info: Unsanitized input from a React useState value flows into __html, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] Cross-Site Request Forgery (CSRF)
+   Finding ID: c1ed4ce4-5256-492b-9721-129362e2d270
+   Path: base%20code/Zero-Health-main/server.js, line 14
+   Info: CSRF protection is disabled for your Express app. This allows the attackers to execute requests on a user's behalf.
+
+ ✗ [MEDIUM] JWT 'none' Algorithm Supported
+   Finding ID: b5f8ee76-9f0b-442a-a33d-bf04c140f6e9
+   Path: base%20code/Zero-Health-main/server.js, line 897
+   Info: JWT signing or verification uses the 'none' algorithm. This allows an attacker to forge unencrypted JWT tokens that may be accepted by the application. Always specify which algorithms should be accepted to avoid unintended behaviour.
+
+ ✗ [MEDIUM] JWT 'none' Algorithm Supported
+   Finding ID: 03968f72-4cf5-428d-a1b9-db063c8605e1
+   Path: base%20code/Zero-Health-main/server.js, line 1550
+   Info: JWT signing or verification uses the 'none' algorithm. This allows an attacker to forge unencrypted JWT tokens that may be accepted by the application. Always specify which algorithms should be accepted to avoid unintended behaviour.
+
+ ✗ [MEDIUM] Use of Hardcoded Passwords
+   Finding ID: 195eeb0e-fc60-44b5-8097-456c9b14ca3c
+   Path: base%20code/Zero-Health-main/server.js, line 271
+   Info: Do not hardcode passwords in code. Found hardcoded password used in password.
+
+ ✗ [MEDIUM] Allocation of Resources Without Limits or Throttling
+   Finding ID: 3d47b38a-935e-4637-9671-9913f24e9e0d
+   Path: base%20code/Zero-Health-main/routes/chatbot.js, line 344
+   Info: Expensive operation (a system command execution) is performed by an endpoint handler which does not use a rate-limiting mechanism. It may enable the attackers to perform Denial-of-service attacks. Consider using a rate-limiting middleware such as express-limit.
+
+ ✗ [MEDIUM] Allocation of Resources Without Limits or Throttling
+   Finding ID: 416f9f73-2f91-4e0a-8448-aa5e30dad756
+   Path: base%20code/Zero-Health-main/server.js, line 819
+   Info: Expensive operation (a file system operation) is performed by an endpoint handler which does not use a rate-limiting mechanism. It may enable the attackers to perform Denial-of-service attacks. Consider using a rate-limiting middleware such as express-limit.
+
+ ✗ [MEDIUM] Allocation of Resources Without Limits or Throttling
+   Finding ID: 3f9e9245-f26b-4afc-a281-fc0b326cdd39
+   Path: base%20code/Zero-Health-main/server.js, line 1080
+   Info: Expensive operation (a file system operation) is performed by an endpoint handler which does not use a rate-limiting mechanism. It may enable the attackers to perform Denial-of-service attacks. Consider using a rate-limiting middleware such as express-limit.
+
+ ✗ [MEDIUM] Allocation of Resources Without Limits or Throttling
+   Finding ID: e768ca52-d6b0-4868-b897-41f8236ea72c
+   Path: base%20code/Zero-Health-main/server.js, line 1239
+   Info: Expensive operation (a file system operation) is performed by an endpoint handler which does not use a rate-limiting mechanism. It may enable the attackers to perform Denial-of-service attacks. Consider using a rate-limiting middleware such as express-limit.
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: af442518-26d9-46a1-929d-8116f9abbcd8
+   Path: base%20code/Zero-Health-main/client/src/components/StaffDashboard.jsx, line 795
+   Info: Unsanitized input from a React useState value flows into __html, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] Allocation of Resources Without Limits or Throttling
+   Finding ID: a13c49d4-2db7-457b-a8b4-117cd5a3090d
+   Path: base%20code/Zero-Health-main/server.js, line 1429
+   Info: Expensive operation (a file system operation) is performed by an endpoint handler which does not use a rate-limiting mechanism. It may enable the attackers to perform Denial-of-service attacks. Consider using a rate-limiting middleware such as express-limit.
+
+ ✗ [MEDIUM] Allocation of Resources Without Limits or Throttling
+   Finding ID: 20ab86cc-b5ec-43e8-a7d6-5aaed3372357
+   Path: base%20code/Zero-Health-main/server.js, line 1702
+   Info: Expensive operation (a file system operation) is performed by an endpoint handler which does not use a rate-limiting mechanism. It may enable the attackers to perform Denial-of-service attacks. Consider using a rate-limiting middleware such as express-limit.
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: 68d26a57-9793-4f51-96d7-f9a107030876
+   Path: base%20code/Zero-Health-main/client/src/components/PatientPortal.jsx, line 373
+   Info: Unsanitized input from a React useState value flows into __html, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: ae1a9f30-83da-4b92-9168-2c83a0930a93
+   Path: base%20code/Zero-Health-main/client/src/components/Chatbot.jsx, line 326
+   Info: Unsanitized input from a React useState value flows into __html, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] Information Exposure - X-Powered-By Header
+   Finding ID: d48d4ab8-e79b-4377-9afd-c8b5c74c7e68
+   Path: base%20code/Zero-Health-main/server.js, line 14
+   Info: Disable X-Powered-By header for your Express app (consider using Helmet middleware), because it exposes information about the used framework to potential attackers.
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: 0b586e5e-fd71-457a-ab50-b22f51bae163
+   Path: base%20code/Zero-Health-main/client/src/components/ResetPassword.jsx, line 77
+   Info: Unsanitized input from a React parameter value flows into __html, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: dd405163-48c0-4bc3-ae6c-650e9012662e
+   Path: base%20code/Zero-Health-main/client/src/components/StaffDashboard.jsx, line 799
+   Info: Unsanitized input from a React useState value flows into a script 'src' attribute, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: a6b7775a-4991-4f4f-b1ad-262d84a7caa8
+   Path: base%20code/Zero-Health-main/client/src/components/StaffDashboard.jsx, line 695
+   Info: Unsanitized input from a React useState value flows into a script 'src' attribute, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: 2da7f8eb-a0ac-4afa-a175-10c26a7413d5
+   Path: base%20code/Zero-Health-main/client/src/components/PatientPortal.jsx, line 543
+   Info: Unsanitized input from a React useState value flows into a script 'src' attribute, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: ed91f723-a12b-4cf8-8ca1-08d950784311
+   Path: base%20code/Zero-Health-main/client/src/components/PatientPortal.jsx, line 380
+   Info: Unsanitized input from a React useState value flows into a script 'src' attribute, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: 59705952-b015-4bf0-bcdb-09577e28507c
+   Path: base%20code/Zero-Health-main/client/src/components/ForgotPassword.jsx, line 77
+   Info: Unsanitized input from a React useState value flows into a React dynamic 'href' attribute, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [MEDIUM] DOM-based Cross-site Scripting (XSS)
+   Finding ID: 7a8b32a2-0377-4035-aea9-7a384f1700bb
+   Path: base%20code/Zero-Health-main/client/src/components/ForgotPassword.jsx, line 82
+   Info: Unsanitized input from a React useState value flows into a React dynamic 'href' attribute, where it is used to dynamically construct the HTML page on client side. This may result in a DOM Based Cross-Site Scripting attack (DOMXSS).
+
+ ✗ [HIGH] Path Traversal
+   Finding ID: 395b520e-b383-43a1-bc96-05425413b9ef
+   Path: base%20code/Zero-Health-main/server.js, line 1446
+   Info: Unsanitized input from an uploaded file flows into fs.unlinkSync, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to delete arbitrary files.
+
+ ✗ [HIGH] SQL Injection
+   Finding ID: 66a3d65a-a0a9-44c1-8b06-1e10e8e32363
+   Path: base%20code/Zero-Health-main/server.js, line 274
+   Info: Unsanitized input from the HTTP request body flows into query, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+ ✗ [HIGH] SQL Injection
+   Finding ID: cb87b898-49e3-4434-b5de-17524f93b015
+   Path: base%20code/Zero-Health-main/server.js, line 700
+   Info: Unsanitized input from the HTTP request body flows into query, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+ ✗ [HIGH] SQL Injection
+   Finding ID: 00f12d2f-8bdf-4c48-b33e-5c0eef9970c3
+   Path: base%20code/Zero-Health-main/server.js, line 983
+   Info: Unsanitized input from the HTTP request body flows into query, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+ ✗ [HIGH] SQL Injection
+   Finding ID: ff58a0cf-9ec3-4a83-8183-7d334bc647f1
+   Path: base%20code/Zero-Health-main/server.js, line 1630
+   Info: Unsanitized input from the HTTP request body flows into query, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+ ✗ [HIGH] SQL Injection
+   Finding ID: 09b82c01-8333-45ad-93e2-801fc8d84bbe
+   Path: base%20code/Zero-Health-main/server.js, line 1311
+   Info: Unsanitized input from an HTTP parameter flows into query, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+ ✗ [HIGH] SQL Injection
+   Finding ID: f20400a3-daa9-4be2-b4c2-944f1a003d1b
+   Path: base%20code/Zero-Health-main/server.js, line 1525
+   Info: Unsanitized input from an HTTP parameter flows into query, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+ ✗ [HIGH] SQL Injection
+   Finding ID: 0bb4f1a9-8397-4169-93bf-aecec189a84e
+   Path: base%20code/Zero-Health-main/server.js, line 1393
+   Info: Unsanitized input from an uploaded file flows into query, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+ ✗ [HIGH] SQL Injection
+   Finding ID: a3851945-3819-4316-97d8-668318706521
+   Path: base%20code/Zero-Health-main/server.js, line 192
+   Info: Unsanitized input from the HTTP request body flows into query, where it is used in an SQL query. This may result in an SQL Injection vulnerability.
+
+ ✗ [HIGH] Cross-site Scripting (XSS)
+   Finding ID: d93f5df7-3624-4190-8928-0fc27683e179
+   Path: base%20code/Zero-Health-main/server.js, line 2098
+   Info: Unsanitized input from an HTTP parameter flows into send, where it is used to render an HTML page returned to the user. This may result in a Cross-Site Scripting attack (XSS).
+
+ ✗ [HIGH] XML External Entity (XXE) Injection
+   Finding ID: 76335aad-a33b-4b30-9fc7-32c5ea0a5757
+   Path: base%20code/Zero-Health-main/server.js, line 1346
+   Info: Unsanitized user input from an uploaded file flows into libxmljs.parseXml, with external entities being enabled. This introduces the risk of XML External Entity Injection (XXE) attacks, which can lead to disclosure of confidential data, Denial of Service (DOS), Server-Side Request Forgery (SSRF) and other threats.
+
+ ✗ [HIGH] Command Injection
+   Finding ID: 1a99f3a8-17d2-48d7-bb17-977a1c6ea41d
+   Path: base%20code/Zero-Health-main/server.js, line 1476
+   Info: Unsanitized input from an uploaded file flows into child_process.exec, where it is used to build a shell command. This may result in a Command Injection vulnerability.
+
+ ✗ [HIGH] Path Traversal
+   Finding ID: 7b3132cb-b23f-4fed-aa31-274f259f221f
+   Path: base%20code/Zero-Health-main/server.js, line 1423
+   Info: Unsanitized input from an uploaded file flows into fs.unlinkSync, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to delete arbitrary files.
+
+ ✗ [HIGH] Path Traversal
+   Finding ID: 87e3a220-e58d-4ea2-b31e-128c2ee5c5a0
+   Path: base%20code/Zero-Health-main/server.js, line 1339
+   Info: Unsanitized input from an uploaded file flows into fs.readFileSync, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [HIGH] Path Traversal
+   Finding ID: ca755b5e-9dee-437d-ae9e-26106b4b4dce
+   Path: base%20code/Zero-Health-main/server.js, line 1170
+   Info: Unsanitized input from the HTTP request body flows into download, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to read arbitrary files.
+
+ ✗ [HIGH] Path Traversal
+   Finding ID: 559594f3-2e9e-48aa-a616-223f47550a74
+   Path: base%20code/Zero-Health-main/server.js, line 1173
+   Info: Unsanitized input from the HTTP request body flows into fs.unlinkSync, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to delete arbitrary files.
+
+ ✗ [HIGH] Path Traversal
+   Finding ID: 60cce79c-acea-4bf2-915e-db018f0f58a0
+   Path: base%20code/Zero-Health-main/server.js, line 1157
+   Info: Unsanitized input from the HTTP request body flows into fs.unlinkSync, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to delete arbitrary files.
+
+ ✗ [HIGH] Path Traversal
+   Finding ID: d7aca233-7331-4511-acce-397149b68ee5
+   Path: base%20code/Zero-Health-main/server.js, line 1783
+   Info: Unsanitized input from the HTTP request body flows into fs.writeFileSync, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write to arbitrary files.
+
+ ✗ [HIGH] Path Traversal
+   Finding ID: cadf1948-ef08-4204-8cba-37f70de90dd4
+   Path: base%20code/Zero-Health-main/server.js, line 1144
+   Info: Unsanitized input from the HTTP request body flows into fs.writeFileSync, where it is used as a path. This may result in a Path Traversal vulnerability and allow an attacker to write to arbitrary files.
+
+ ✗ [HIGH] Hardcoded Secret
+   Finding ID: 8f06133d-f81c-45fc-91ea-39f796c74886
+   Path: base%20code/Zero-Health-main/server.js, line 894
+   Info: Hardcoded value is used as a cipher key (in jsonwebtoken.sign). Generate the value with a cryptographically strong random number generator and do not hardcode it in source code.
+
+ ✗ [HIGH] Hardcoded Non-Cryptographic Secret
+   Finding ID: 229f3156-e7dc-4d79-a0fe-61bf38e32e9c
+   Path: base%20code/Zero-Health-main/routes/chatbot.js, line 29
+   Info: Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in here.
+
+ ✗ [HIGH] Hardcoded Non-Cryptographic Secret
+   Finding ID: d1fbc4cf-2b43-4aba-a5da-868f3eac0577
+   Path: base%20code/Zero-Health-main/scripts/init-sample-data.js, line 150
+   Info: Avoid hardcoding values that are meant to be secret. Found a hardcoded string used in bcryptjs.hash.
+
+
+
+╭───────────────────────────────────────────────────────────────╮
+│ Test Summary                                                  │
+│                                                               │
+│   Organization:      habibanour                               │
+│   Test type:         Static code analysis                     │
+│   Project path:      /home/b00151078/Desktop/App_Sec_CA3-1    │
+│                                                               │
+│   Total issues:   49                                          │
+│   Ignored issues: 0 [ 0 HIGH  0 MEDIUM  0 LOW ]               │
+│   Open issues:    49 [ 22 HIGH  24 MEDIUM  3 LOW ]            │
+╰───────────────────────────────────────────────────────────────╯
+    
+💡 Tip
+
+   To view ignored issues, use the --include-ignores option.
+                                                            
+
