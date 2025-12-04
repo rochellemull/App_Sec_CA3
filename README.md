@@ -12,8 +12,7 @@ Fix 2: Secure JWT Verification (Sensitive Data Protection)(Mira)
 
 The app was using jwt.decode(), which only reads the token without checking 
 if it is valid. I replaced this with jwt.verify() so the token’s signature
-and expiry are properly checked. I also moved the JWT secret key into a 
-.env file. This ensures tokens cannot be forged or modified and protects 
+and expiry are properly checked. This ensures tokens cannot be forged or modified and protects 
 sensitive user data.
 
 Fix 3: Hardcoded Secret (Habiba)
@@ -25,4 +24,8 @@ Fix 4: Use of Hardcoded Passwords (Habiba)
 
 In the api/info endpoint there was a hardcoded password detected by the Snyk scan, and according to (owasp.org,2025), it is increasing the possibility for attackers to guess the passwords, and if the attacker found it, then they would be able to gain access and use that for malicious activities.
 Fixing this issue is done by removing the password from server.js and putting it in a safe, isolated file, which in this case is the .env file.
+
+Fix 5: 
+
+Fix 6: 
 
