@@ -38,3 +38,9 @@ Burp suite can be used to test this using the proxy to capture the request and t
 
 Fix 4 Path traversal
 This can be checked in Burpe suite by intercepting the get request for patients test results and sending it to the repeater. Then you modify the file path in the repeater and can see it gives an error if the file name is not one on the allow list
+
+Fix 5: hardcoded password
+The hardcoded password was tested using the curl command, which is a command that is used to scan to send HTTP requests to receive information from the web server, so it can get information about the endpoint, which might lead to the attacker impersonating the victim. Used the command to scan the “/apt/info” endpoint, as that’s where the Snyk scan showed the issue. If the command showed the hardcoded password, then it means that the issue is still not fixed. If I run the command again and this time nothing is there, then it means that the issue is fixed. Additionally, scan the source code again to make sure that the issue was fixed.
+
+Fix 6: hardcoded secret
+The JWT hardcoded secret was showing clearly at the start of server.js and in the “api/info” endpoint, but the Snyk scan didn’t identify that “api/info” is an issue in this part of the code. Therefore, the used curl command showed the hardcoded secret, which might then lead to a data breach.
